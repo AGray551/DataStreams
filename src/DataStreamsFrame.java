@@ -123,12 +123,12 @@ public class DataStreamsFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String searchKeyword = searchString.getText();
                 if (loadedFile != null && loadedFile.exists()) {
-                    try {
-                        List<String> matchingLines = Files.lines(Paths.get(loadedFile.getPath()))
+                    try (Stream<String> lines = Files.lines(Paths.get(loadedFile.getPath()))) {
+                        List<String> matchingLines = lines
                                 .filter(line -> line.contains(searchKeyword))
                                 .collect(Collectors.toList());
                         if (!matchingLines.isEmpty()) {
-                            newFile.setText("Search Results for: " + searchKeyword + "\n");
+                            newFile.setText("Search Results for: " + searchKeyword + "\n\n");
                             for (String line : matchingLines) {
                                 newFile.append(line + "\n");
                             }

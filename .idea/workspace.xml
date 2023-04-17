@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f70c19df-0811-4627-9d89-b5d4f1bda1a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataStreamsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStreamsFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataStreamsRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataStreamsRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +60,18 @@
       <option name="presentableId" value="Default" />
       <updated>1680549995206</updated>
     </task>
+    <task id="LOCAL-00001" summary="Commit 2">
+      <created>1681774571621</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681774571621</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Commit 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 2" />
   </component>
 </project>
