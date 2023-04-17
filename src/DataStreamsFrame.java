@@ -103,10 +103,10 @@ public class DataStreamsFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fileChooser = new JFileChooser();
                 if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                    loadedFile = fileChooser.getSelectedFile(); // Store the currently loaded file
+                    loadedFile = fileChooser.getSelectedFile();
                     fileName.setText(loadedFile.getName());
                     try (Scanner scanner = new Scanner(loadedFile)) {
-                        ogFile.setText(""); // Clear the original file text area
+                        ogFile.setText("");
                         while (scanner.hasNextLine()) {
                             ogFile.append(scanner.nextLine() + "\n");
                         }
@@ -123,11 +123,12 @@ public class DataStreamsFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String searchKeyword = searchString.getText();
                 if (loadedFile != null && loadedFile.exists()) {
-                    try (Stream<String> lines = Files.lines(Paths.get(loadedFile.getPath()))) {
-                        List<String> matchingLines = lines.filter(line -> line.contains(searchKeyword))
+                    try {
+                        List<String> matchingLines = Files.lines(Paths.get(loadedFile.getPath()))
+                                .filter(line -> line.contains(searchKeyword))
                                 .collect(Collectors.toList());
                         if (!matchingLines.isEmpty()) {
-                            newFile.setText("Search Results for: " + searchKeyword + "\n\n");
+                            newFile.setText("Search Results for: " + searchKeyword + "\n");
                             for (String line : matchingLines) {
                                 newFile.append(line + "\n");
                             }
@@ -138,7 +139,7 @@ public class DataStreamsFrame extends JFrame {
                         JOptionPane.showMessageDialog(null, "Error reading file: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "No file loaded", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "No loaded file", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
